@@ -5,28 +5,28 @@ export type Observer = { render: () => void } & HTMLElement;
 
 export type AppState = {
 	products: Product[];
-	shoppingitems: Shopping[];
+	Shopping: Shopping[];
 };
 
 export enum productActions {
 	'GETPRODUCTS' = 'GETPRODUCTS',
 }
-export enum shoppingItemsActions {
-	'GETSHOPPINGITEMS' = 'GETSHOPPINGITEMS',
-	'SAVESHOPPINGITEMS' = 'SAVESHOPPINGITEMS',
+export enum ShoppingActions {
+	'GETSHOPPING' = 'GETSHOPPING',
+	'SAVESHOPPING' = 'SAVESHOPPING',
 }
 
 export interface GetProductAction {
 	action: productActions.GETPRODUCTS;
 	payload: Product[];
 }
-export interface GetshoppingItemsAction {
-	action: shoppingItemsActions.GETSHOPPINGITEMS;
+export interface GetShoppingAction {
+	action: ShoppingActions.GETSHOPPING;
 	payload: Shopping[];
 }
-export interface SaveshoppingItemsAction {
-	action: shoppingItemsActions.SAVESHOPPINGITEMS;
+export interface SaveShoppingAction {
+	action: ShoppingActions.SAVESHOPPING;
 	payload: Shopping;
 }
 
-export type Actions = GetProductAction | GetshoppingItemsAction | SaveshoppingItemsAction;
+export type Actions = GetProductAction | GetShoppingAction | SaveShoppingAction;

@@ -7,6 +7,8 @@ export enum ProductAttribute {
 	'category' = 'category',
 	'description' = 'description',
 	'image' = 'image',
+	'ratingcount' = 'ratingcount',
+	'ratingrate' = 'ratingrate',
 }
 
 class Product extends HTMLElement {
@@ -16,6 +18,8 @@ class Product extends HTMLElement {
 	category?: string;
 	description?: string;
 	image?: string;
+	ratingcount?: number;
+	ratingrate?: number;
 
 	static get observedAttributes() {
 		return Object.keys(ProductAttribute);
@@ -30,6 +34,14 @@ class Product extends HTMLElement {
 
 				case ProductAttribute.price:
 					this[propName] = parseInt(newValue);
+					break;
+
+				case ProductAttribute.ratingcount:
+					this.ratingcount = newValue ? Number(newValue) : undefined;
+					break;
+
+				case ProductAttribute.ratingrate:
+					this.ratingrate = newValue ? Number(newValue) : undefined;
 					break;
 			}
 		}
@@ -54,6 +66,7 @@ class Product extends HTMLElement {
         <h2>${this.totle}</h2>
         <p>${this.description}</p>
         <h4>${this.category}</4>
+				<p>Rating: rate: ${this.ratingcount} count: ${this.ratingrate}</p>
         <h2>${this.price}</h2>
         </section>
       `;

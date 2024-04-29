@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-	entry: './src/index.ts',
+	entry: './src/indexAbuelo.ts',
 	mode: 'development',
 	module: {
 		rules: [
@@ -12,7 +12,6 @@ module.exports = {
 			{
 				test: /\.tsx?$/,
 				use: 'ts-loader',
-				exclude: /node_modules/,
 			},
 		],
 	},
