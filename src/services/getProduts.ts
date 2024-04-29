@@ -8,4 +8,3 @@ export const productData = async () => {
 		return 'Unknown';
 	}
 };
-export default productData;

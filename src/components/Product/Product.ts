@@ -22,7 +22,17 @@ class Product extends HTMLElement {
 	ratingrate?: number;
 
 	static get observedAttributes() {
-		return Object.keys(ProductAttribute);
+		const attrs: Record<ProductAttribute, null> = {
+			uid: null,
+			image: null,
+			totle: null,
+			description: null,
+			category: null,
+			price: null,
+			ratingcount: null,
+			ratingrate: null,
+		};
+		return Object.keys(attrs);
 	}
 
 	attributeChangedCallback(propName: string, oldValue: string | null, newValue: string | null) {
@@ -61,13 +71,14 @@ class Product extends HTMLElement {
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `
+
         <section class='section'>
         <img src="${this.image}"><img>
         <h2>${this.totle}</h2>
-        <p>${this.description}</p>
-        <h4>${this.category}</4>
+        <p>About the product: ${this.description}</p>
+        <h4>${this.category}</h4>
 				<p>Rating: rate: ${this.ratingcount} count: ${this.ratingrate}</p>
-        <h2>${this.price}</h2>
+        <h2>Price: $${this.price}</h2>
         </section>
       `;
 		}
